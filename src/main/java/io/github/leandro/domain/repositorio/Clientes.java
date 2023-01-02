@@ -53,6 +53,29 @@ public class Clientes {
     }
 
 
+    //Atualizar
+    public Cliente atualizar(Cliente cliente){
+        jdbcTemplate.update(UPDATE, new Object[]{cliente.getNome(), cliente.getId()});
+        return cliente;
+    }
+
+
+    public void deletar (Cliente cliente){
+        deletar(cliente.getId());
+    }
+
+
+    //usado por deletar(Cliente cliente)
+    public void deletar(Integer id){
+        jdbcTemplate.update(DELETE, new Object[]{id});
+    }
+
+
+
+
+
+
+
     //Lista todos os clientes no console
     public List<Cliente> obterTodos(){
         return jdbcTemplate.query(SELECT_ALL, new RowMapper<Cliente>(){
