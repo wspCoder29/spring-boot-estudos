@@ -1,0 +1,12 @@
+io\github\leandro\io\domain\entity\Pedido.class
+io\github\leandro\domain\repositorio\Clientes.class
+io\github\leandro\domain\entity\Pedido.class
+io\github\leandro\io\domain\entity\Cliente.class
+io\github\leandro\VendasApplication.class
+io\github\leandro\io\domain\entity\Produto.class
+io\github\leandro\io\domain\entity\ItemPedido.class
+io\github\leandro\domain\entity\Produto.class
+io\github\leandro\domain\entity\Cliente.class
+io\github\leandro\domain\entity\ItemPedido.class
+io\github\leandro\domain\repositorio\Clientes$1.class
+io\github\leandro\MinhaConfiguration.class

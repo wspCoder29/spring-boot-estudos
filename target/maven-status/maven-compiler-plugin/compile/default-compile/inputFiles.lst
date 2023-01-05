@@ -1,6 +1,11 @@
-C:\Users\Leandro\Desktop\CursoSpring\spring-boot-estudos\src\main\java\io\github\leandro\model\Cliente.java
-C:\Users\Leandro\Desktop\CursoSpring\spring-boot-estudos\src\main\java\repository\ClientesRepository.java
-C:\Users\Leandro\Desktop\CursoSpring\spring-boot-estudos\src\main\java\service\ClientesService.java
+C:\Users\Leandro\Desktop\CursoSpring\spring-boot-estudos\src\main\java\io\github\leandro\domain\entity\Pedido.java
+C:\Users\Leandro\Desktop\CursoSpring\spring-boot-estudos\src\main\java\io\github\leandro\io\domain\entity\Cliente.java
+C:\Users\Leandro\Desktop\CursoSpring\spring-boot-estudos\src\main\java\io\github\leandro\io\domain\entity\Pedido.java
+C:\Users\Leandro\Desktop\CursoSpring\spring-boot-estudos\src\main\java\io\github\leandro\io\domain\entity\Produto.java
 C:\Users\Leandro\Desktop\CursoSpring\spring-boot-estudos\src\main\java\io\github\leandro\MinhaConfiguration.java
-C:\Users\Leandro\Desktop\CursoSpring\spring-boot-estudos\src\main\java\model\Cliente.java
+C:\Users\Leandro\Desktop\CursoSpring\spring-boot-estudos\src\main\java\io\github\leandro\domain\entity\Cliente.java
+C:\Users\Leandro\Desktop\CursoSpring\spring-boot-estudos\src\main\java\io\github\leandro\domain\entity\ItemPedido.java
+C:\Users\Leandro\Desktop\CursoSpring\spring-boot-estudos\src\main\java\io\github\leandro\domain\entity\Produto.java
+C:\Users\Leandro\Desktop\CursoSpring\spring-boot-estudos\src\main\java\io\github\leandro\domain\repositorio\Clientes.java
+C:\Users\Leandro\Desktop\CursoSpring\spring-boot-estudos\src\main\java\io\github\leandro\io\domain\entity\ItemPedido.java
 C:\Users\Leandro\Desktop\CursoSpring\spring-boot-estudos\src\main\java\io\github\leandro\VendasApplication.java
