@@ -19,9 +19,7 @@ public class Clientes {
 
     private static String INSERT = "insert into cliente (nome) values (?) ";
     private static String SELECT_ALL = "SELECT * FROM CLIENTE ";
-
     private static String UPDATE = "update cliente set nome = ? where id = ? ";
-
     private static String DELETE = "delete from cliente where id = ? ";
 
 
@@ -36,13 +34,52 @@ public class Clientes {
         //command line runner
         return args -> {
 
+
+            System.out.println("====Salvando clientes====");
             clientes.salvar(new Cliente("Ada"));
 
-            clientes.salvar(new Cliente("Lili"));
+            clientes.salvar(new Cliente("Mia"));
 
+            clientes.salvar(new Cliente("Juri"));
+
+            clientes.salvar(new Cliente("Kris"));
+
+            System.out.println("====Mostrando clientes====");
             //para mostrar todos os clientes gerados no console
             List<Cliente> todosClientes = clientes.obterTodos();
             todosClientes.forEach(System.out::println);
+
+
+            System.out.println("====Atualizando clientes====");
+            //testa o método de atualização
+            todosClientes.forEach(c -> {
+                c.setNome(c.getNome()+" atualizado. (metodo editar nome ok)");
+                clientes.atualizar(c);
+            });
+
+            System.out.println("====Mostrando clientes====");
+            //Mostra todos os clientes
+            todosClientes = clientes.obterTodos();
+            todosClientes.forEach(System.out::println);
+
+            System.out.println("====Buscando clientes====");
+                System.out.println("Encontrado");
+                clientes.buscarPorNome("Juri").forEach(System.out::println);
+
+//            System.out.println("deletando clientes");
+//            clientes.obterTodos().forEach(c ->{
+//                clientes.deletar(c);
+//            });
+
+
+            todosClientes = clientes.obterTodos();
+            if(todosClientes.isEmpty()){
+                System.out.println("Nenhum clientes encontrado");
+            }else{
+                todosClientes.forEach(System.out::println);
+            }
+
+
 
         };
     }
@@ -71,23 +108,29 @@ public class Clientes {
     }
 
 
-
-
+    //Buscar por nome
+    public List<Cliente> buscarPorNome(String nome){
+        return jdbcTemplate.query(SELECT_ALL.concat(" where nome like ? "),
+                new Object[]{"%" + nome +"%"},
+                obterClienteMapper());
+    }
 
 
 
     //Lista todos os clientes no console
     public List<Cliente> obterTodos(){
-        return jdbcTemplate.query(SELECT_ALL, new RowMapper<Cliente>(){
-            @Override
-            public Cliente mapRow(ResultSet resultSet, int i) throws SQLException{
-                return new Cliente(resultSet.getInt("id"), resultSet.getString("nome"));
-            }
-        });
+        return jdbcTemplate.query(SELECT_ALL, obterClienteMapper());
     }
 
+    private RowMapper<Cliente> obterClienteMapper() {
 
-
+        return new RowMapper<Cliente>() {
+            @Override
+            public Cliente mapRow(ResultSet resultSet, int i) throws SQLException {
+                return new Cliente(resultSet.getInt("id"), resultSet.getString("nome"));
+            }
+        };
+    }
 
 
 }
