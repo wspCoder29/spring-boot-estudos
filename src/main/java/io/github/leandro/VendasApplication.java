@@ -22,12 +22,12 @@ public class VendasApplication {
     private String applicationName;
 
     @GetMapping("/hello")
-    public String hello(){
+    public String hello() {
         return applicationName;
     }
 
     @Bean
-    public CommandLineRunner init (@Autowired Clientes clientes){
+    public CommandLineRunner init(@Autowired Clientes clientes) {
         //command line runner
         return args -> {
 
@@ -42,40 +42,42 @@ public class VendasApplication {
             clientes.save(new Cliente("Kris"));
 
             System.out.println("====Mostrando clientes====");
-            List<Cliente> todosClientes = clientes.findAll();
-            todosClientes.forEach(System.out::println);
-
-
-            System.out.println("====Atualizando clientes====");
-            //testa o método de atualização
-            todosClientes.forEach(c -> {
-                c.setNome(c.getNome()+" atualizado. (metodo editar nome ok)");
-                clientes.save(c);
-            });
-
-
-            System.out.println("====Mostrando clientes====");
-            todosClientes = clientes.findAll();
-            todosClientes.forEach(System.out::println);
-
-
-            System.out.println("====Buscando clientes====");
-            System.out.println("Encontrado");
-            clientes.findByNomeLike("Juri").forEach(System.out::println);
+            boolean existe = clientes.existsByNome("Mia");
+            System.out.println("Existe: "+ existe);
 
 
 
-            System.out.println("deletando clientes");
-            clientes.findAll().forEach(c->{
-                clientes.delete(c);
-            });
 
-            todosClientes = clientes.findAll();
-            if(todosClientes.isEmpty()){
-                System.out.println("Nenhum cliente encontrado");
-            }else{
-                todosClientes.forEach(System.out::println);
-            }
+//            System.out.println("====Atualizando clientes====");
+//            //testa o método de atualização
+//            todosClientes.forEach(c -> {
+//                c.setNome(c.getNome()+" atualizado. (metodo editar nome ok)");
+//                clientes.save(c);
+//            });
+
+
+//            System.out.println("====Mostrando clientes====");
+//            todosClientes = clientes.findAll();
+//            todosClientes.forEach(System.out::println);
+//
+//
+//            System.out.println("====Buscando clientes====");
+//            System.out.println("Encontrado");
+//            clientes.findByNomeLike("Juri").forEach(System.out::println);
+//
+//
+//
+//            System.out.println("deletando clientes");
+//            clientes.findAll().forEach(c->{
+//                clientes.delete(c);
+//            });
+//
+//            todosClientes = clientes.findAll();
+//            if(todosClientes.isEmpty()){
+//                System.out.println("Nenhum cliente encontrado");
+//            }else{
+//                todosClientes.forEach(System.out::println);
+//            }
         };
     }
 
